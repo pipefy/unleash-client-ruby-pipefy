@@ -7,7 +7,7 @@ module Unleash
       PARAM = 'orgIds'.freeze
 
       def name
-        'org_id'
+        'orgWithId'
       end
 
       def is_enabled?(params = {}, context = nil)
