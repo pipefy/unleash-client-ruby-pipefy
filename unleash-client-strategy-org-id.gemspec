@@ -10,12 +10,12 @@ Gem::Specification.new do |spec|
 
   spec.summary       = 'Unleash client custom strategy for org-id context value.'
   spec.description   = 'Unleash client example of a custom strategy for org-id context value.'
-  #spec.homepage      = "https://github.com/rarruda/unleash-client-ruby-strategy-companyid"
+  spec.homepage      = "https://github.com/pipefy/unleash-client-ruby-org-id"
 
   # spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com'"
 
-  #spec.metadata["homepage_uri"] = spec.homepage
-  # spec.metadata["source_code_uri"] = "https://github.com/unleash/unleash-client-ruby-strategy-companyid"
+  spec.metadata["homepage_uri"] = spec.homepage
+  spec.metadata["source_code_uri"] = "https://github.com/pipefy/unleash-client-ruby-org-id"
   # spec.metadata["changelog_uri"] = "TODO: Put your gem's CHANGELOG.md URL here."
 
   # Specify which files should be added to the gem when it is released.
