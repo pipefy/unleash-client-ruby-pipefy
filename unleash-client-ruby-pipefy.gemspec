@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require "unleash/strategy/org_with_id"
 
 Gem::Specification.new do |spec|
-  spec.name          = "unleash-client-pipefy-ruby"
+  spec.name          = "unleash-client-ruby-pipefy"
   spec.version       = 1.0
   spec.authors       = ["Anderson Campos, Gustavo Candido, Thais Caldeira"]
   spec.email         = ["anderson.campos@pipefy.com, gustavo.candido@pipefy.com, thais.caldeira@pipefy.com"]
