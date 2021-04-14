@@ -3,7 +3,7 @@ require "unleash/strategy/base"
 module Unleash
   module Strategy
     class OrgWithId < Base
-      VERSION = '1.0'.freeze
+      VERSION = '1.1'.freeze
       PARAM = 'orgIds'.freeze
 
       def name
