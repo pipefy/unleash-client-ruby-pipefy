@@ -1,10 +1,10 @@
 lib = File.expand_path("lib", __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "unleash/strategy/orgId"
+require "unleash/strategy/org_with_id"
 
 Gem::Specification.new do |spec|
   spec.name          = "unleash-client-strategy-org-id"
-  spec.version       = Unleash::Strategy::OrgId::VERSION
+  spec.version       = Unleash::Strategy::OrgWithId::VERSION
   spec.authors       = ["Anderson Campos, Gustavo Candido, Thais Caldeira"]
   spec.email         = ["anderson.campos@pipefy.com, gustavo.candido@pipefy.com, thais.caldeira@pipefy.com"]
 

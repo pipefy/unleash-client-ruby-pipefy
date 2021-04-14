@@ -1,13 +1,13 @@
 require 'unleash/context'
 
-RSpec.describe Unleash::Strategy::OrgId do
+RSpec.describe Unleash::Strategy::OrgWithId do
   it 'has a version number' do
-    expect(Unleash::Strategy::OrgId::VERSION).not_to be nil
+    expect(Unleash::Strategy::OrgWithId::VERSION).not_to be nil
   end
 
 
   describe '#is_enabled?' do
-    let(:strategy) { Unleash::Strategy::OrgId.new }
+    let(:strategy) { Unleash::Strategy::OrgWithId.new }
     let(:unleash_context) { Unleash::Context.new({ properties: { 'org_id' => '1234' } }) }
 
     it 'should be enabled with correct params/context as str' do
