@@ -23,8 +23,8 @@ module Unleash
           return false
         end
 
-        group_uuid = params.fetch('groupUUID', '')
-        normalized_number = Util.get_normalized_number(stickiness_id, group_uuid)
+        group_id = params.fetch('groupId', '')
+        normalized_number = Util.get_normalized_number(stickiness_id, group_id)
 
         return false if stickiness_id.nil?
 

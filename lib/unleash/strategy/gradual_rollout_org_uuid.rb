@@ -18,9 +18,9 @@ module Unleash
         return false if unleash_context.nil? || unleash_context.empty?
 
         percentage = Integer(params['percentage'] || 0)
-        group_uuid = params.fetch('groupUUID', '')
+        group_id = params.fetch('groupId', '')
 
-        check_enabled_by_percentage(unleash_context, percentage, group_uuid)
+        check_enabled_by_percentage(unleash_context, percentage, group_id)
       end
 
       private
@@ -29,8 +29,8 @@ module Unleash
         context&.properties&.values_at('org_uuid', :org_uuid)&.compact&.first
       end
 
-      def check_enabled_by_percentage(unleash_context, percentage, group_uuid)
-        percentage.positive? && Util.get_normalized_number(unleash_context, group_uuid) <= percentage
+      def check_enabled_by_percentage(unleash_context, percentage, group_id)
+        percentage.positive? && Util.get_normalized_number(unleash_context, group_id) <= percentage
       end
     end
   end

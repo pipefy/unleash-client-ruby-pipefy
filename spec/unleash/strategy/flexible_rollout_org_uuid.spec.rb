@@ -10,11 +10,11 @@ RSpec.describe Unleash::Strategy::FlexibleRolloutOrgUUID do
 
     it 'should always be enabled when rollout is set to 100, disabled when set to 0' do
       params = {
-        'groupUUID' => 'Demo',
+        'groupId' => 'Demo',
         'rollout' => 100,
         'stickiness' => 'default'
       }
-
+      
       expect(strategy.is_enabled?(params, unleash_context)).to be_truthy
       expect(strategy.is_enabled?(params.merge({ 'rollout' => 0 }), unleash_context)).to be_falsey
     end
@@ -23,7 +23,7 @@ RSpec.describe Unleash::Strategy::FlexibleRolloutOrgUUID do
       allow(Unleash::Strategy::Util).to receive(:get_normalized_number).and_return(15)
 
       params = {
-        'groupUUID' => 'Demo',
+        'groupId' => 'Demo',
         'stickiness' => 'default'
       }
 
