@@ -3,7 +3,7 @@
 module Unleash
   module Strategy
     class OrgWithoutUUID < Base
-      PARAM = 'orgUUIDs'
+      PARAM = 'disabledOrgUUIDs'
 
       def name
         'orgWithoutUUID'
