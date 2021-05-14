@@ -12,6 +12,7 @@ module Unleash
       def is_enabled?(params = {}, context = nil)
         return false unless params.is_a?(Hash)
         return false unless context.instance_of?(Unleash::Context)
+        return false if forbidden_org_uuids(params).include?(current_org_uuid(context))
 
         stickiness = params.fetch('stickiness', 'default')
         stickiness_id = resolve_stickiness(stickiness, context)
@@ -54,6 +55,10 @@ module Unleash
 
       def current_org_uuid(context)
         context&.properties&.values_at('org_uuid', :org_uuid)&.compact&.first
+      end
+
+      def forbidden_org_uuids(params)
+        params.fetch('disabledOrgUUIDs', '').split(',').map(&:strip)
       end
     end
   end

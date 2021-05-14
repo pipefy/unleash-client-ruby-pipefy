@@ -31,5 +31,19 @@ RSpec.describe Unleash::Strategy::FlexibleRolloutOrgUUID do
       expect(strategy.is_enabled?(params.merge({ 'rollout' => 15 }), unleash_context)).to be_truthy
       expect(strategy.is_enabled?(params.merge({ 'rollout' => 16 }), unleash_context)).to be_truthy
     end
+
+    it 'should always be disabled for orgUUIDs listed on the disabledOrgUUIDs' do
+      params = {
+        'groupId' => 'Demo',
+        'rollout' => 100,
+        'stickiness' => 'default',
+        'disabledOrgUUIDs' => '1234, 1256, 1267, 1289'
+      }
+      unleash_context2 = Unleash::Context.new({ properties: { org_uuid: '1234' } })
+      expect(strategy.is_enabled?(params, unleash_context2)).to be_falsey
+
+      unleash_context3 = Unleash::Context.new({ properties: { org_uuid: '2567' } })
+      expect(strategy.is_enabled?(params, unleash_context3)).to be_truthy
+    end
   end
 end
