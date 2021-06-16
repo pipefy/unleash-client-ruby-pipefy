@@ -27,14 +27,5 @@ RSpec.describe Unleash::Strategy::OrgCreatedAfter do
 
       expect(strategy.is_enabled?(params, unleash_context)).to be_falsey
     end
-
-    it 'should always enabled for orgUUIDs listed on the enabledOrgUUIDs' do
-      params = {
-        'orgCreatedAfter' => '2022-01-01 00:00:00 UTC',
-        'enabledOrgUUIDs' => '1234, 1256, 1267, 1289'
-      }
-
-      expect(strategy.is_enabled?(params, unleash_context)).to be_truthy
-    end
   end
 end

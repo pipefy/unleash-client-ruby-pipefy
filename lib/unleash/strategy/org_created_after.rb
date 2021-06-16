@@ -16,7 +16,6 @@ module Unleash
         return false unless params.fetch(PARAM, nil).is_a? String
         return false unless context.instance_of?(Unleash::Context)
         return false if forbidden_org_uuids(params).include?(current_org_uuid(context))
-        return true if override_org_uuids(params).include?(current_org_uuid(context))
 
         begin
           base_time = DateTime.parse(params[PARAM]) 
@@ -29,7 +28,7 @@ module Unleash
       end
 
       private
-      
+
       def org_created_at(context)
         context&.properties&.values_at('org_created_at', :org_created_at)&.compact&.first
       end
@@ -40,10 +39,6 @@ module Unleash
 
       def forbidden_org_uuids(params)
         params.fetch('disabledOrgUUIDs', '').split(',').map(&:strip)
-      end
-
-      def override_org_uuids(params)
-        params.fetch('enabledOrgUUIDs', '').split(',').map(&:strip)
       end
     end
   end
