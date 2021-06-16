@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'unleash'
-require 'pry'
 require 'date'
 
 require_relative 'unleash/strategy/org_with_uuid'
