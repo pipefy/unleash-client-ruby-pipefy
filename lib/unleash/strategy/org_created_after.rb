@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'pry'
+
 module Unleash
   module Strategy
     class OrgCreatedAfter < Base
@@ -14,6 +16,7 @@ module Unleash
         return false unless params.fetch(PARAM, nil).is_a? String
         return false unless context.instance_of?(Unleash::Context)
         return false if forbidden_org_uuids(params).include?(current_org_uuid(context))
+        return true if override_org_uuids(params).include?(current_org_uuid(context))
 
         begin
           base_time = DateTime.parse(params[PARAM]) 
@@ -37,6 +40,10 @@ module Unleash
 
       def forbidden_org_uuids(params)
         params.fetch('disabledOrgUUIDs', '').split(',').map(&:strip)
+      end
+
+      def override_org_uuids(params)
+        params.fetch('enabledOrgUUIDs', '').split(',').map(&:strip)
       end
     end
   end

@@ -19,13 +19,22 @@ RSpec.describe Unleash::Strategy::UserCreatedAfter do
       expect(strategy.is_enabled?({ 'userCreatedAfter' => 'xxx' }, unleash_context)).to be_falsey
     end
 
-    it 'should always be disabled for orgUUIDs listed on the disabledOrgUUIDs' do
+    it 'should always disabled for orgUUIDs listed on the disabledOrgUUIDs' do
       params = {
-        userCreatedAfter: '2021-01-01 00:00:00 UTC',
-        disabledOrgUUIDs: '1234, 1256, 1267, 1289'
+        'userCreatedAfter' => '2021-01-01 00:00:00 UTC',
+        'disabledOrgUUIDs' => '1234, 1256, 1267, 1289'
       }
 
       expect(strategy.is_enabled?(params, unleash_context)).to be_falsey
+    end
+
+    it 'should always enabled for orgUUIDs listed on the enabledOrgUUIDs' do
+      params = {
+        'userCreatedAfter' => '2022-01-01 00:00:00 UTC',
+        'enabledOrgUUIDs' => '1234, 1256, 1267, 1289'
+      }
+
+      expect(strategy.is_enabled?(params, unleash_context)).to be_truthy
     end
   end
 end
