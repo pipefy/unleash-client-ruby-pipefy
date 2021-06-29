@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'pry'
-
 module Unleash
   module Strategy
     class OrgCreatedAfter < Base
