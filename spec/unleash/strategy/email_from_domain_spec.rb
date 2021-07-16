@@ -6,7 +6,13 @@ RSpec.describe Unleash::Strategy::EmailFromDomain do
   let(:unleash_context) { Unleash::Context.new(properties: { email: email }) }
 
   describe '#is_enabled?' do
-    subject { described_class.new.is_enabled?({ 'domains' => ['active.com'] }, unleash_context) }
+    subject { described_class.new.is_enabled?({ 'domains' => 'active.com,fake.com' }, unleash_context) }
+
+    context 'when there is not email properties' do
+      let(:unleash_context) { Unleash::Context.new(properties: { name: nil }) }
+
+      it { is_expected.to be_falsey }
+    end
 
     context 'when the email is blank' do
       let(:email) { nil }
