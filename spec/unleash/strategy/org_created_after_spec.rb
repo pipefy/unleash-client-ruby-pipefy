@@ -27,5 +27,15 @@ RSpec.describe Unleash::Strategy::OrgCreatedAfter do
 
       expect(strategy.is_enabled?(params, unleash_context)).to be_falsey
     end
+
+    context 'when the organization UUID is empty' do
+      let(:unleash_context) do
+        Unleash::Context.new({ properties: { org_uuid: '1234', 'org_created_at' => nil } })
+      end
+
+      it 'is disabled' do
+        expect(strategy.is_enabled?({ 'orgCreatedAfter' => '2021-01-01 00:00:00 UTC' }, unleash_context)).to be false
+      end
+    end
   end
 end

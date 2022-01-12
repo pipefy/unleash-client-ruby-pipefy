@@ -16,7 +16,7 @@ module Unleash
         return false if forbidden_org_uuids(params).include?(current_org_uuid(context))
 
         org_creation_date = org_created_at(context)
-        return false unless org_creation_date.present?
+        return false if org_creation_date.nil?
 
         begin
           base_time = DateTime.parse(params[PARAM])
