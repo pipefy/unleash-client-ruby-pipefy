@@ -21,13 +21,13 @@ module Unleash
 
       def use_case_allowed?(params, context)
         experience = context.properties[:experience]
-        return unless experience
+        return false unless experience
 
         param = JSON.parse(params[PARAM])
         department = experience[:department]&.strip
         use_case = experience[:use_case]&.strip
 
-        param[department].include?(use_case)
+        param[department]&.include?(use_case)
       end
     end
   end
