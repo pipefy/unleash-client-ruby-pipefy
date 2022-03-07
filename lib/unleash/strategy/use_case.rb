@@ -6,7 +6,7 @@ module Unleash
       PARAM = 'Experience'
 
       def name
-        'useCases'
+        'useCase'
       end
 
       def enabled?(params = {}, context = nil)
@@ -14,12 +14,14 @@ module Unleash
         return false unless params.fetch(PARAM, nil).is_a? String
         return false unless context.instance_of?(Unleash::Context)
 
-        use_cases_allowed?(params, context)
+        use_case_allowed?(params, context)
       end
 
       private
 
-      def use_cases_allowed?(params, context)
+      def use_case_allowed?(params, context)
+        return unless context.properties
+
         experience = JSON.parse(params[PARAM])
         department = context.properties[:department].strip
         use_case = context.properties[:use_case].strip

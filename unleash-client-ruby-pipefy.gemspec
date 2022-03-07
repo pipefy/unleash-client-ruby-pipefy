@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |spec|
   spec.name          = 'unleash-client-ruby-pipefy'
-  spec.version       = 1.9
+  spec.version       = '1.9.1'
   spec.authors       = ['Anderson Campos, Gustavo Candido, Thais Caldeira']
   spec.email         = ['anderson.campos@pipefy.com, gustavo.candido@pipefy.com, thais.caldeira@pipefy.com']
 
