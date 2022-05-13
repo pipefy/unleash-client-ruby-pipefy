@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |spec|
   spec.name          = 'unleash-client-ruby-pipefy'
-  spec.version       = '1.9.1'
+  spec.version       = '2.0.0'
   spec.authors       = ['Anderson Campos, Gustavo Candido, Thais Caldeira']
   spec.email         = ['anderson.campos@pipefy.com, gustavo.candido@pipefy.com, thais.caldeira@pipefy.com']
 
@@ -24,7 +24,7 @@ Gem::Specification.new do |spec|
   # spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
-  spec.add_dependency 'unleash', '~> 3.2.2'
+  spec.add_dependency 'unleash', '~> 4.2', '>= 4.2.1'
 
   spec.add_development_dependency 'bundler', '~> 2.0'
   spec.add_development_dependency 'pry'
