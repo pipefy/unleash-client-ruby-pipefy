@@ -15,9 +15,12 @@ module Unleash
         return false unless context.instance_of?(Unleash::Context)
         return false if forbidden_org_uuids(params).include?(current_org_uuid(context))
 
+        user_creation_date = user_created_at(context)
++       return false if user_creation_date.nil?
+
         begin
-          base_time = DateTime.parse(params[PARAM]) 
-          user_time = DateTime.parse(user_created_at(context))
+          base_time = DateTime.parse(params[PARAM])
++         user_time = DateTime.parse(user_creation_date)
         rescue ArgumentError
           return false
         end

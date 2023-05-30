@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'unleash/context'
+require 'unleash/strategy/pipe_with_uuid'
 
 RSpec.describe Unleash::Strategy::PipeWithUUID do
   describe '#is_enabled?' do
