@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 require 'unleash/context'
-require 'unleash/strategy/org_created_after'
+require 'unleash/strategy/user_created_after'
 
 RSpec.describe Unleash::Strategy::UserCreatedAfter do
   describe '#is_enabled?' do
-    let(:strategy) { Unleash::Strategy::UserCreatedAfter.new }
+    let(:strategy) { described_class.new }
     let(:unleash_context) do
       Unleash::Context.new({ properties: { org_uuid: '1234', 'user_created_at' => '2021-05-27 17:50:59 UTC' } })
     end
