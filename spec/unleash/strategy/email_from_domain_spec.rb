@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'unleash/context'
+require 'unleash/strategy/email_from_domain'
 
 RSpec.describe Unleash::Strategy::EmailFromDomain do
   let(:unleash_context) { Unleash::Context.new(properties: { email: email }) }

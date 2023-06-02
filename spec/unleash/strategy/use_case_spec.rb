@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'unleash/context'
+require 'unleash/strategy/use_case'
 
 RSpec.describe Unleash::Strategy::UseCase do
   describe '#is_enabled?' do

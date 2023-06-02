@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'unleash/context'
+require 'unleash/strategy/org_created_after'
 
 RSpec.describe Unleash::Strategy::OrgCreatedAfter do
   describe '#is_enabled?' do

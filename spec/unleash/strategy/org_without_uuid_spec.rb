@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'unleash/context'
+require 'unleash/strategy/org_without_uuid'
 
 RSpec.describe Unleash::Strategy::OrgWithoutUUID do
   describe '#is_enabled?' do
