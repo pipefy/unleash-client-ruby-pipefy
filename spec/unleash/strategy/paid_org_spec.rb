@@ -17,7 +17,7 @@ RSpec.describe Unleash::Strategy::OrgWithPlan do
     end
 
     context 'with correct context as sym' do
-      let(:org_plan_property) { { 'org_plan' => 'Pro' } }
+      let(:org_plan_property) { { org_plan: 'Pro' } }
   
       it 'should be enabled' do
         expect(strategy.is_enabled?(params, unleash_context)).to be_truthy
