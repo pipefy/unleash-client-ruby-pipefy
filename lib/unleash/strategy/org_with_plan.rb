@@ -16,11 +16,11 @@ module Unleash
       private
 
       def current_org_plan(context)
-        context&.properties&.fetch(:org_plan, nil)
+        context&.properties&.fetch(:org_plan, "")&.downcase
       end
 
       def allowed_plans(params)
-        params[PARAM].split(',').map(&:strip)
+        params[PARAM].downcase.split(',').map(&:strip)
       end
     end
   end
