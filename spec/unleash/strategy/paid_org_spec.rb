@@ -24,6 +24,14 @@ RSpec.describe Unleash::Strategy::OrgWithPlan do
       end
     end
 
+    context 'with correct context as str and value with all upcase letters' do
+      let(:org_plan_property) { { org_plan: 'ENTERPRISE' } }
+
+      it 'should be enabled' do
+        expect(strategy.is_enabled?(params, unleash_context)).to be_truthy
+      end
+    end
+
     context 'with wrong/falsey context' do
       let(:org_plan_property) { { 'org_plan' => 'Free' } }
   
